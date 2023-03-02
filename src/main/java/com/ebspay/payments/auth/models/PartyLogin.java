@@ -101,6 +101,10 @@ public class PartyLogin {
 	@Column(name = "invalid_login_attempts")
 	private int loginAttempts;
 
+	@Column(name = "last_login")
+	private Date lastLogin;
+
+
 	public PartyLogin(String userName, String firstName, String middleName,String lastName, int partyId, int role,
 					  Boolean active, /*int createdById,*/ Date createdOnDate) {
 		super();
