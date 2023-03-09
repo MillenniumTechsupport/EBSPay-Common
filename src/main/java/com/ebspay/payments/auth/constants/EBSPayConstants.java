@@ -72,7 +72,7 @@ public class EBSPayConstants {
 	
 	//twilio
 	public static final String ACCOUNT_SID = "AC49ba885a3ccd9ec7b386bf08f5cbc91d";
-	public static final String AUTH_TOKEN = "01a293a83678361d2d03bb0a861671da";
+	public static final String AUTH_TOKEN = "09af2013851e66da61c70e3fa18e49c7";
 	public static final String FROM = "+12056969969";
 	
 	//Disbursement Method
