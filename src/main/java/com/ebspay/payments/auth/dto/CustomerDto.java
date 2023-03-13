@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,7 +33,7 @@ public class CustomerDto {
 
 	private String ssn;
 
-	private IdentityDTO identityDTO;
+	private List<IdentityDTO> identityDTO;
 
 	private Address address;
 	

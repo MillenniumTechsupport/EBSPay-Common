@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -35,8 +36,11 @@ public class PersonKYCDto {
 //	private Date createdOn;
 //	private int modBy;
 //	private Date modifiedOn;
+
+	//Identity Docs
+	private List<IdentityDTO> identityDTOList;
 	
-	public PersonKYCDto(PartyContact partyContact, Address address, String licenceNumber) {
+	public PersonKYCDto(PartyContact partyContact, Address address, String licenceNumber, List<IdentityDTO> identityDTOList) {
 		super();
 		this.id = partyContact.getContactId();
 		this.partyId = partyContact.getPartyId();
@@ -50,9 +54,10 @@ public class PersonKYCDto {
 		this.entityType = EBSPayConstants.ENTITYTYPEPRIMARYCONT;
 		this.licenceNumber = licenceNumber;
 		this.address = address;
+		this.identityDTOList = identityDTOList;
 	}
 
-	public PersonKYCDto(Customer customer, Address address, String licenceNumber) {
+	public PersonKYCDto(Customer customer, Address address, String licenceNumber, List<IdentityDTO> identityDTOList) {
 		super();
 		this.id = customer.getCustomerId();
 		this.partyId = customer.getPartyId();
@@ -66,6 +71,7 @@ public class PersonKYCDto {
 		this.entityType = EBSPayConstants.ENTITYTYPECUST;
 		this.licenceNumber = licenceNumber;
 		this.address = address;
+		this.identityDTOList = identityDTOList;
 	}
 
 	public String getUserName() {
