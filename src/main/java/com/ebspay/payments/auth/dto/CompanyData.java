@@ -4,6 +4,7 @@ package com.ebspay.payments.auth.dto;
 import com.ebspay.payments.auth.models.Party;
 import com.ebspay.payments.auth.models.PartyAddress;
 import com.ebspay.payments.auth.models.PartyContact;
+import com.ebspay.payments.auth.models.PartyIdentity;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class CompanyData {
 	private Date modifiedOn;
 
 	List<Address> address =new ArrayList<>();
-
+	private List<IdentityDTO> identityDTOList;
 	PrimaryContactReq primaryContactReq;
 
 	public CompanyData(Party party, List<PartyAddress> address) {
@@ -66,7 +67,7 @@ public class CompanyData {
 
 	}
 
-	public CompanyData(Party party, List<PartyAddress> address, PartyContact partyContact) {
+	public CompanyData(Party party, List<PartyAddress> address, PartyContact partyContact, List<PartyIdentity> partyIdentityList) {
 		super();
 		this.partyId=party.getPartyId();
 		this.parntParty = party.getParentPartyId();
@@ -83,9 +84,10 @@ public class CompanyData {
 		this.modifiedOn= party.getModOnDate();
 		this.createdBy = party.getCreatedBy()+"";
 		this.creationDate = party.getCreatedOnDate();
-
 		if(address!=null)
 			this.address = address.stream().map(a->new Address(a)).collect(Collectors.toList());
+		if (partyIdentityList!=null)
+			this.identityDTOList = partyIdentityList.stream().map(s->new IdentityDTO(s)).collect(Collectors.toList());
 		this.primaryContactReq = new PrimaryContactReq(partyContact);
 	}
 }
